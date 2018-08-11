@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HomeTask2</string>
+    <string name="main_activity">Main Activity</string>
+    <string name="second_activity">Second activity</string>
+    <string name="third_activity">Third activity</string>
+    <string name="close_third_activity">Close third activity</string>
+</resources>

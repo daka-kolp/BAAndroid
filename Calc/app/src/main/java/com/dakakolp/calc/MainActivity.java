@@ -2,6 +2,7 @@ package com.dakakolp.calc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,7 +29,14 @@ public class MainActivity extends AppCompatActivity {
         minusB = findViewById(R.id.minus);
         multiplyB = findViewById(R.id.multiply);
         divideB = findViewById(R.id.divide);
-        
+
+        plusB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
 
 
