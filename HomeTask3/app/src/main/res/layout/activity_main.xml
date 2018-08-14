@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundActivity"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start listing now"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="Create an account so buyers can\ncontact you."
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_button_f"
+            android:drawableLeft="@drawable/if_facebook"
+            android:drawableStart="@drawable/if_facebook"
+            android:paddingLeft="10dp"
+            android:text="Login with the Facebook"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/textColorPrimary" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_button_g"
+            android:drawableLeft="@drawable/if_google"
+            android:drawableStart="@drawable/if_google"
+            android:paddingLeft="10dp"
+            android:text="Login with Google"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/textColorPrimary" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="Or continue with e-mail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/background_light" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Login"
+
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/background_light"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/textColorPrimary"/>
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sign Up"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/background_light"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

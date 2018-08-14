@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ApplicaionTaskTwo</string>
+    <string name="btn_close">Закрыть</string>
+    <string name="btn_start_second_activity">Запусть второй</string>
+    <string name="fifth">Пятый</string>
+    <string name="forth_activity">Четвертая активность</string>
+    <string name="sa5">оа5</string>
+    <string name="sa4">оа4</string>
+    <string name="sa3">оа3</string>
+    <string name="start_activity">Запустить активность</string>
+    <string name="activity2">Активность2</string>
+    <string name="close">Закрыть</string>
+    <string name="third_activity">Третья активность</string>
+</resources>
