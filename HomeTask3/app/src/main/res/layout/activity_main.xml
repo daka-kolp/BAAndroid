@@ -19,7 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start listing now"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -46,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_button_g"
             android:drawableLeft="@drawable/if_google"
             android:drawableStart="@drawable/if_google"
@@ -93,7 +94,7 @@
                 android:layout_width="1dp"
                 android:layout_height="22dp"
                 android:layout_gravity="center_vertical"
-                android:background="@color/textColorPrimary"/>
+                android:background="@color/textColorPrimary" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Borderless"
