@@ -1,0 +1,1 @@
+include ':app', ':app1train', ':app2train'
