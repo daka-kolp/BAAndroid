@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewHomeTsk5</string>
+    <string name="choose_recipe">Choose recipe...</string>
+    <string name="ingredients">Ingredients</string>
+</resources>

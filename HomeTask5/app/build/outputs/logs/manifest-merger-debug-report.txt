@@ -1,0 +1,113 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/darya/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/5b40b4de541d1fd0907408b27e36f58a/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/04e356a4bd6da430c1bfe07460da6567/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/750c4e9f821f2c09b22f81d63f9bcf46/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/e1b100aabe48733a097c29059e527646/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/990278ba8a1ba80f1f7886ecd2e2a877/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/a90a57731676099d9f66ab9b635d9731/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/f91415c8f82d68f09aec2ced5462a1a2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/7da32024e4ebc9360f5d6c58ce5554c0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1cf51ddfd400fc9821495f57b29b2c67/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/22181c7bde4bb7295c7075dd09577269/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/db24d7c7be2ee942ceba184b740c92d7/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6a87fa5c60d2a850e5e737a8259dcae4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/517a61c101baa0260fd746aa8f9d0d4b/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:5:5-20:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/darya/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/5b40b4de541d1fd0907408b27e36f58a/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/darya/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/5b40b4de541d1fd0907408b27e36f58a/AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.dakakolp.hometask5.MainActivity
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:16:27-74
+activity#com.dakakolp.hometask5.IngredientsActivity
+ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:19:9-66
+	android:name
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml:19:19-54
+uses-sdk
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/darya/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/5b40b4de541d1fd0907408b27e36f58a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/darya/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/5b40b4de541d1fd0907408b27e36f58a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/04e356a4bd6da430c1bfe07460da6567/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/04e356a4bd6da430c1bfe07460da6567/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/750c4e9f821f2c09b22f81d63f9bcf46/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/750c4e9f821f2c09b22f81d63f9bcf46/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/e1b100aabe48733a097c29059e527646/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/e1b100aabe48733a097c29059e527646/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/990278ba8a1ba80f1f7886ecd2e2a877/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/990278ba8a1ba80f1f7886ecd2e2a877/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/a90a57731676099d9f66ab9b635d9731/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/a90a57731676099d9f66ab9b635d9731/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/f91415c8f82d68f09aec2ced5462a1a2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/f91415c8f82d68f09aec2ced5462a1a2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/7da32024e4ebc9360f5d6c58ce5554c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/7da32024e4ebc9360f5d6c58ce5554c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1cf51ddfd400fc9821495f57b29b2c67/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/darya/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1cf51ddfd400fc9821495f57b29b2c67/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/22181c7bde4bb7295c7075dd09577269/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/22181c7bde4bb7295c7075dd09577269/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/db24d7c7be2ee942ceba184b740c92d7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/db24d7c7be2ee942ceba184b740c92d7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6a87fa5c60d2a850e5e737a8259dcae4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6a87fa5c60d2a850e5e737a8259dcae4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/517a61c101baa0260fd746aa8f9d0d4b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/darya/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/517a61c101baa0260fd746aa8f9d0d4b/AndroidManifest.xml:20:5-44
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		ADDED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
+		INJECTED from /home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/AndroidManifest.xml
