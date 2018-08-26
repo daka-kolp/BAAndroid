@@ -146,38 +146,6 @@
             ]
         },
         {
-            "outputFile": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/values-fa_values-fa.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/res/values-fa/values-fa.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,215,318,429,513,616,731,810,888,969,1081,1184,1282,1392,1496,1605,1766,1867",
-                        "endColumns": "109,102,110,83,102,114,78,77,80,111,102,97,109,103,108,160,100,80",
-                        "endOffsets": "210,313,424,508,611,726,805,883,964,1076,1179,1277,1387,1491,1600,1761,1862,1943"
-                    }
-                },
-                {
-                    "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1cf51ddfd400fc9821495f57b29b2c67/res/values-fa/values-fa.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "20",
-                        "startColumns": "4",
-                        "startOffsets": "1948",
-                        "endColumns": "100",
-                        "endOffsets": "2044"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
@@ -205,6 +173,38 @@
                         "startOffsets": "1810",
                         "endColumns": "101",
                         "endOffsets": "1907"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/values-fa_values-fa.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/res/values-fa/values-fa.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,318,429,513,616,731,810,888,969,1081,1184,1282,1392,1496,1605,1766,1867",
+                        "endColumns": "109,102,110,83,102,114,78,77,80,111,102,97,109,103,108,160,100,80",
+                        "endOffsets": "210,313,424,508,611,726,805,883,964,1076,1179,1277,1387,1491,1600,1761,1862,1943"
+                    }
+                },
+                {
+                    "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1cf51ddfd400fc9821495f57b29b2c67/res/values-fa/values-fa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1948",
+                        "endColumns": "100",
+                        "endOffsets": "2044"
                     }
                 }
             ]
@@ -867,21 +867,6 @@
             ]
         },
         {
-            "outputFile": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/values-xlarge-v4_values-xlarge-v4.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/res/values-xlarge-v4/values-xlarge-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,126,197,267,337,405",
-                        "endColumns": "70,70,69,69,67,67",
-                        "endOffsets": "121,192,262,332,400,468"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/values-sr_values-sr.arsc.flat",
             "map": [
                 {
@@ -909,6 +894,21 @@
                         "startOffsets": "1955",
                         "endColumns": "100",
                         "endOffsets": "2051"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/values-xlarge-v4_values-xlarge-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
                     }
                 }
             ]
