@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.dakakolp.applicationtask3.MainActivity">
 
         </activity>
-        <activity android:name=".TaskActivity">
+        <activity android:name="com.dakakolp.applicationtask3.TaskActivity">
 
         </activity>
 
-        <activity android:name=".TaskPlusActivity">
+        <activity android:name="com.dakakolp.applicationtask3.TaskPlusActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

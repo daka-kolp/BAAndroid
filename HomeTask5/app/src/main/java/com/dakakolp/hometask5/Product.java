@@ -12,8 +12,7 @@ public class Product implements Serializable {
     public static List<Product> createProducts() {
         List<Product> products = new ArrayList<Product>();
         products.add(new Product(R.drawable.heart_shaped_sushi, "Heart Shaped Sushi",
-                "\tHeart Shaped Sushi\n\n" +
-                        " - rice\n" +
+                " - rice\n" +
                         " - nori seaweed\n" +
                         " - sushi vinegar (1 tbsp per 250g cooked rice)\n" +
                         " - soy sauce\n" +
@@ -24,8 +23,7 @@ public class Product implements Serializable {
                         " - tobiko fish roe egg (optional)\n" +
                         " - sesame seeds (optional)"));
         products.add(new Product(R.drawable.turkey_sushi_roll, "Turkey Sushi Roll",
-                "\tTurkey Sushi Roll\n\n" +
-                        " - 300g cooked rice\n" +
+                " - 300g cooked rice\n" +
                         " - 80ml sushi vinegar\n" +
                         " - 1 sheet nori seaweed\n" +
                         " - cooked turkey (or chicken)\n" +
@@ -34,16 +32,14 @@ public class Product implements Serializable {
                         " - wasabi (optional)\n" +
                         " - sesame seeds (optional)"));
         products.add(new Product(R.drawable.hinamatsuri_sushi, "Hina Matsuri Flower Sushi",
-                "\tHina Matsuri Flower Sushi\n\n" +
-                        " - 300g white japanese sushi rice\n" +
+                " - 300g white japanese sushi rice\n" +
                         " - 125g white japanese sushi rice with plum seasoning\n" +
                         " - nori seaweed\n" +
                         " - carrot\n" +
                         " - ham\n" +
                         " - steamed spinach"));
         products.add(new Product(R.drawable.sushi_canape, "Sushi Canapés",
-                "\tSushi Canapés\n\n" +
-                        " - 300g prepared sushi rice\n" +
+                " - 300g prepared sushi rice\n" +
                         " - nori seaweed sheets\n" +
                         "suggested toppings:\n" +
                         " - salmon sashimi\n" +
