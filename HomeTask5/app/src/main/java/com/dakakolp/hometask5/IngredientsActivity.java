@@ -15,6 +15,14 @@ public class IngredientsActivity extends AppCompatActivity {
     public static final String RECIPE_ID = "recipeID";
     public static final String LIST_RECIPES = "listRecipes";
 
+    ArrayList<Product> list;
+    int positionId;
+
+    TextView nameTV;
+    TextView ingredientsTV;
+    ImageView photoIV;
+    View ingredientsView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,26 +30,28 @@ public class IngredientsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        int positionId = intent.getIntExtra(RECIPE_ID, 0);
-        ArrayList<Product> list = (ArrayList<Product>) intent.getSerializableExtra(LIST_RECIPES);
+        list = (ArrayList<Product>) intent.getSerializableExtra(LIST_RECIPES);
+        positionId = intent.getIntExtra(RECIPE_ID, 0);
 
-        final TextView nameTV = findViewById(R.id.name_recipe);
+        nameTV = findViewById(R.id.name_recipe);
         nameTV.setText(list.get(positionId).getName());
 
-        TextView tv = findViewById(R.id.text_ingredients);
-        tv.setText(list.get(positionId).getDescription());
+        ingredientsTV = findViewById(R.id.text_ingredients);
+        ingredientsTV.setText(list.get(positionId).getDescription());
 
-        ImageView iv = findViewById(R.id.image_ingredients);
-        iv.setImageResource(list.get(positionId).getPhoto());
-
-        View view = findViewById(R.id.linear_ingredients);
-        Snackbar sb = Snackbar.make(view, "New message", Snackbar.LENGTH_LONG);
-        sb.show();
-
-        sb.setAction("Change recipe's name", new View.OnClickListener() {
+        photoIV = findViewById(R.id.image_ingredients);
+        photoIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nameTV.setText("New recipe");
+                ingredientsView = findViewById(R.id.linear_ingredients);
+                Snackbar sb = Snackbar.make(ingredientsView, "Show image?", Snackbar.LENGTH_LONG);
+                sb.show();
+                sb.setAction("Display", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        photoIV.setImageResource(list.get(positionId).getPhoto());
+                    }
+                });
             }
         });
     }
