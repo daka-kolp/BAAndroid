@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.dakakolp.hometask5.IngredientsActivity" />
+        <activity android:name="com.dakakolp.hometask5.NewActivity" />
     </application>
 
 </manifest>

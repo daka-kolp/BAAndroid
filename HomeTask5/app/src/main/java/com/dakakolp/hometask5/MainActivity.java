@@ -34,9 +34,20 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
     @Override
     public void onClickCardView(int position) {
 
+        Product product = listProducts.get(position);
+
         Intent intent = new Intent(this, IngredientsActivity.class);
-        intent.putExtra(IngredientsActivity.RECIPE_ID, position);
-        intent.putExtra(IngredientsActivity.LIST_RECIPES, (Serializable) listProducts);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Name", product.getName());
+        bundle.putString("Description", product.getDescription());
+        bundle.putInt("Photo", product.getPhoto());
+
+        bundle.putSerializable("Product", product);
+
+        intent.putExtras(bundle);
+//        intent.putExtra(IngredientsActivity.RECIPE_ID, position);
+//        intent.putExtra(IngredientsActivity.LIST_RECIPES, (Serializable) listProducts);
         startActivity(intent);
 
     }

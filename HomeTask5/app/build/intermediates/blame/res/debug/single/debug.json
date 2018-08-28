@@ -1636,6 +1636,10 @@
         "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/layout_activity_new.xml.flat",
+        "source": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/src/main/res/layout/activity_new.xml"
+    },
+    {
         "merged": "/home/darya/MyProjects/BAAndroid/HomeTask5/app/build/intermediates/res/merged/debug/layout_abc_action_menu_item_layout.xml.flat",
         "source": "/home/darya/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b392db84129f6c88382e31ea031bf2ff/res/layout/abc_action_menu_item_layout.xml"
     },
