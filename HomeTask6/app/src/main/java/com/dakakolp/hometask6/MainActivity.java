@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<User> userList = User.createUsers();
+    private int currentPosition;
+
+    public static final int CODE_FOR_EDIT = 108;
 
 
     @Override
@@ -29,22 +34,52 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
 
-        userAdapter = new UserAdapter(userList, new FinishListener() {
+        OnUserClickListener onUserClickListener = new OnUserClickListener() {
             @Override
-            public void finishActivity() {
-                MainActivity.this.finish();
+            public void onDotsClick(View view, final int position) {
+
+                currentPosition = position;
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+                popupMenu.inflate(R.menu.popup_menu);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.delete:
+                                userList.remove(position);
+                                userAdapter.notifyItemRemoved(position);
+                                return true;
+                            case R.id.edit_it:
+
+                                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable(EditActivity.USER, userList.get(position));
+
+                                intent.putExtras(bundle);
+                                startActivityForResult(intent, CODE_FOR_EDIT);
+
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
             }
-        });
+        };
+
+        userAdapter = new UserAdapter(userList, onUserClickListener);
+
         recyclerView.setAdapter(userAdapter);
 
-        Intent intentFromEdit = getIntent();
-        Bundle bundleFromEdit = intentFromEdit.getExtras();
-        if (bundleFromEdit != null) {
-            User u = (User) bundleFromEdit.getSerializable(EditActivity.NEW_USER);
-            int position = bundleFromEdit.getInt(EditActivity.NEW_POSITION);
-            userList.set(position, u);
-            userAdapter.notifyDataSetChanged();
-        }
+//        Intent intentFromEdit = getIntent();
+//        Bundle bundleFromEdit = intentFromEdit.getExtras();
+//        if (bundleFromEdit != null) {
+//            User u = (User) bundleFromEdit.getSerializable(EditActivity.NEW_USER);
+//            int position = bundleFromEdit.getInt(EditActivity.NEW_POSITION);
+//            userList.set(position, u);
+//            userAdapter.notifyDataSetChanged();
+//        }
     }
 
     @Override
@@ -68,6 +103,27 @@ public class MainActivity extends AppCompatActivity {
                 userAdapter.notifyDataSetChanged();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case CODE_FOR_EDIT:
+                if(resultCode == RESULT_OK) {
+                    Bundle bundleFromEdit = data.getExtras();
+                    if (bundleFromEdit != null) {
+                        User u = (User) bundleFromEdit.getSerializable(EditActivity.NEW_USER);
+                        if(userList.contains(u)){
+                            userList.set(currentPosition, u);
+                        }
+
+                        userAdapter.notifyDataSetChanged();
+                    }
+                }
+                break;
+        }
     }
 
 }

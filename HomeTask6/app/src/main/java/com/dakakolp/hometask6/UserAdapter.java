@@ -23,14 +23,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     }
 
     private List<User> users;
-    private FinishListener listener;
+    private OnUserClickListener listener;
     private Context context;
 
     public UserAdapter(List<User> users) {
         this.users = users;
     }
 
-    public UserAdapter(List<User> users, FinishListener listener) {
+    public UserAdapter(List<User> users, OnUserClickListener listener) {
         this(users);
         this.listener = listener;
     }
@@ -84,35 +84,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             buttonMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    PopupMenu popupMenu = new PopupMenu(context, buttonMenu);
-                    popupMenu.inflate(R.menu.popup_menu);
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            switch (item.getItemId()) {
-                                case R.id.delete:
-                                    users.remove(getAdapterPosition());
-                                    notifyItemRemoved(getAdapterPosition());
-                                    return true;
-                                case R.id.edit_it:
-                                    Intent intent = new Intent(context, EditActivity.class);
-
-                                    Bundle bundle = new Bundle();
-                                    bundle.putSerializable(EditActivity.USER, users.get(getAdapterPosition()));
-                                    bundle.putInt(EditActivity.ID_POSITION, getAdapterPosition());
-
-                                    intent.putExtras(bundle);
-
-                                    context.startActivity(intent);
-
-                                    listener.finishActivity();
-
-                                    return true;
-                            }
-                            return false;
-                        }
-                    });
-                    popupMenu.show();
+                    listener.onDotsClick(v, getAdapterPosition());
                 }
             });
         }

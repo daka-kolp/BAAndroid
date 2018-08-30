@@ -1,13 +1,39 @@
 package com.dakakolp.hometask6;
 
+import android.annotation.SuppressLint;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User implements Serializable {
     private String name;
     private String surname;
     private int age;
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @SuppressLint("NewApi")
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     public static List<User> createUsers() {
         List<User> users = new ArrayList<User>();
@@ -49,4 +75,6 @@ public class User implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+
+
 }

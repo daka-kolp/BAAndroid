@@ -57,10 +57,9 @@ public class EditActivity extends AppCompatActivity {
                     Bundle bundleToMainActivity = new Bundle();
 
                     bundleToMainActivity.putSerializable(NEW_USER, user);
-                    bundleToMainActivity.putInt(EditActivity.NEW_POSITION, position);
                     intentToMainActivity.putExtras(bundleToMainActivity);
 
-                    startActivity(intentToMainActivity);
+                    setResult(RESULT_OK, intentToMainActivity);
                     finish();
                 }
             });
