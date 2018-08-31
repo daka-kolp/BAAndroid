@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AppTask7</string>
     <string name="change_image">Change Image</string>
-    <string name="no_image">no image</string>
     <string name="set_image">Set image</string>
     <string name="change_color">Change color</string>
+    <string name="no_image">No image selected</string>
 </resources>

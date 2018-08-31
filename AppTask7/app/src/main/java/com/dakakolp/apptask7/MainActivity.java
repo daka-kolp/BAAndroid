@@ -1,7 +1,6 @@
 package com.dakakolp.apptask7;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,9 +12,11 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView image;
     private Button changeButton;
-    private TextView dataImage;
+    private Button changeColorButton;
+    private TextView dataColor;
 
-    public static  final int CODE_FOR_CHOICE_ACTIVITY = 108;
+    public static final int CODE_FOR_IMAGE_CHOICE_ACTIVITY = 13;
+    public static final int CODE_FOR_COLOR_CHOICE_ACTIVITY = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +25,25 @@ public class MainActivity extends AppCompatActivity {
 
         image = findViewById(R.id.new_image);
         changeButton = findViewById(R.id.change_button);
-        dataImage = findViewById(R.id.name);
+        changeColorButton = findViewById(R.id.change_color_button);
+
+        dataColor = findViewById(R.id.name);
 
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ChoiceActivity.class);
+                Intent intent = new Intent(MainActivity.this, ImageActivity.class);
 
-                startActivityForResult(intent, CODE_FOR_CHOICE_ACTIVITY);
+                startActivityForResult(intent, CODE_FOR_IMAGE_CHOICE_ACTIVITY);
+            }
+        });
+
+        changeColorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ColorActivity.class);
+
+                startActivityForResult(intent, CODE_FOR_COLOR_CHOICE_ACTIVITY);
             }
         });
 
@@ -43,18 +55,27 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case CODE_FOR_CHOICE_ACTIVITY:
+            case CODE_FOR_IMAGE_CHOICE_ACTIVITY:
+                if (resultCode == RESULT_OK) {
+                    Bundle bundle = data.getExtras();
+
+                    int id = bundle.getInt(ImageActivity.ID_IMAGE);
+                    image.setImageResource(id);
+                    dataColor.setText("");
+
+                }
+                break;
+            case CODE_FOR_COLOR_CHOICE_ACTIVITY:
                 if(resultCode == RESULT_OK){
                     Bundle bundle = data.getExtras();
 
-                    int id = bundle.getInt("ID");
-                    String name = bundle.getString("NameImage");
+                    int id = bundle.getInt(ColorActivity.ID_COLOR);
+                    String name = bundle.getString(ColorActivity.NAME_COLOR);
 
                     image.setImageResource(id);
-                    dataImage.setText(name);
+                    dataColor.setText(name);
                 }
                 break;
-
         }
     }
 }

@@ -8,9 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Field;
-
-public class ChoiceActivity extends AppCompatActivity {
+public class ImageActivity extends AppCompatActivity {
 
     private ImageView face1;
     private ImageView face2;
@@ -21,12 +19,12 @@ public class ChoiceActivity extends AppCompatActivity {
 
     private int idImage;
 
-    public static final String NEW_IMAGE = "New image";
+    public static final String ID_IMAGE = "IDImage";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choice);
+        setContentView(R.layout.activity_image);
 
         face1 = findViewById(R.id.one);
         face2 = findViewById(R.id.two);
@@ -46,14 +44,14 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 idImage = R.drawable.if_face1;
-                textView.setText(String.valueOf(v.getId()));
+                textView.setText("Face 1");
             }
         });
         face2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 idImage = R.drawable.if_face2;
-                textView.setText(String.valueOf(v.getId()));
+                textView.setText("Face 2");
             }
         });
 
@@ -61,7 +59,7 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 idImage = R.drawable.if_face3;
-                textView.setText(String.valueOf(v.getId()));
+                textView.setText("Face 3");
             }
         });
 
@@ -69,7 +67,7 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 idImage = R.drawable.if_face4;
-                textView.setText(String.valueOf(v.getId()));
+                textView.setText("Face 4");
             }
         });
 
@@ -77,10 +75,9 @@ public class ChoiceActivity extends AppCompatActivity {
         buttonSetImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChoiceActivity.this, MainActivity.class);
+                Intent intent = new Intent(ImageActivity.this, MainActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("ID", idImage);
-                bundle.putString("NameImage", textView.getText().toString());
+                bundle.putInt(ID_IMAGE, idImage);
                 intent.putExtras(bundle);
                 setResult(RESULT_OK, intent);
                 finish();
