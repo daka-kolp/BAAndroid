@@ -19,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CALL = 1;
 
     private EditText editText;
+    private EditText editWWW;
     private Button button;
+    private Button buttonWWW;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +47,31 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        editWWW = findViewById(R.id.edit_www);
+        buttonWWW = findViewById(R.id.button_www);
+
+        buttonWWW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHttpPage();
+            }
+        });
+    }
+
+    private void openHttpPage() {
+
+        String httpPage = editWWW.getText().toString();
+        if (httpPage.trim().length() > 0) {
+            String dial = "http://" + httpPage;
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(dial));
+            startActivity(intent);
+        }
+
     }
 
     private void makePhoneCall() {
         String number = editText.getText().toString();
-
 
         if (number.trim().length() > 0) {
 
