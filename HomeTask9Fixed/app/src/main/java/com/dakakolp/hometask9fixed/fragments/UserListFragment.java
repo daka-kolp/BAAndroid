@@ -16,13 +16,15 @@ import android.view.ViewGroup;
 
 import com.dakakolp.hometask9fixed.MainActivity;
 import com.dakakolp.hometask9fixed.R;
-import com.dakakolp.hometask9fixed.User;
-import com.dakakolp.hometask9fixed.UserAdapter;
+import com.dakakolp.hometask9fixed.classes.User;
+import com.dakakolp.hometask9fixed.adapters.UserAdapter;
+import com.dakakolp.hometask9fixed.fragments.dialogs.DeleteDialogFragment;
 import com.dakakolp.hometask9fixed.interfaces.CallbackInterface;
+import com.dakakolp.hometask9fixed.interfaces.OnButtonDialogClickListener;
 
 import java.util.List;
 
-public class UserListFragment extends Fragment {
+public class UserListFragment extends Fragment implements OnButtonDialogClickListener {
 
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
@@ -41,9 +43,9 @@ public class UserListFragment extends Fragment {
                     switch (item.getItemId()) {
                         case R.id.delete:
                             DeleteDialogFragment delete = new DeleteDialogFragment();
+                            delete.setListener(UserListFragment.this);
                             delete.show(getActivity().getSupportFragmentManager(), null);
-//                            userList.remove(position);
-//                            userAdapter.notifyItemRemoved(position);
+//
                             return true;
                         case R.id.edit_it:
                             if (callbackListener != null) {
@@ -86,13 +88,13 @@ public class UserListFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case MainActivity.CODE_FOR_EDIT:
-                if(resultCode == getActivity().RESULT_OK) {
+                if (resultCode == getActivity().RESULT_OK) {
                     Bundle bundleFromEdit = data.getExtras();
                     if (bundleFromEdit != null) {
                         User u = (User) bundleFromEdit.getSerializable(EditFragment.NEW_USER);
-                        if(userList.contains(u)){
+                        if (userList.contains(u)) {
                             userList.set(currentPosition, u);
                         }
                         userAdapter.notifyDataSetChanged();
@@ -100,5 +102,16 @@ public class UserListFragment extends Fragment {
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onYesClick() {
+        userList.remove(currentPosition);
+        userAdapter.notifyItemRemoved(currentPosition);
+    }
+
+    @Override
+    public void onNoClick() {
+
     }
 }

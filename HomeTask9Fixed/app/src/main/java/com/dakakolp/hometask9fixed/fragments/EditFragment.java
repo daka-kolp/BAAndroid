@@ -11,14 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.dakakolp.hometask9fixed.R;
-import com.dakakolp.hometask9fixed.User;
+import com.dakakolp.hometask9fixed.classes.User;
+import com.dakakolp.hometask9fixed.fragments.dialogs.SaveDialogFragment;
 import com.dakakolp.hometask9fixed.interfaces.CallbackInterfaceEdit;
+import com.dakakolp.hometask9fixed.interfaces.OnButtonDialogClickListener;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class EditFragment extends Fragment {
+public class EditFragment extends Fragment implements OnButtonDialogClickListener {
 
 
     public final static String USER = "User";
@@ -35,7 +34,6 @@ public class EditFragment extends Fragment {
     private CallbackInterfaceEdit callbackEditListener;
 
     public EditFragment() {
-        // Required empty public constructor
     }
 
 
@@ -65,10 +63,9 @@ public class EditFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newUser.setName(String.valueOf(nameEdit.getText()));
-                newUser.setSurname(surnameEdit.getText().toString());
-                newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
-                callbackEditListener.onSaveClick(newUser);
+                SaveDialogFragment save = new SaveDialogFragment();
+                save.setListener(EditFragment.this);
+                save.show(getActivity().getSupportFragmentManager(), null);
             }
         });
     }
@@ -76,5 +73,18 @@ public class EditFragment extends Fragment {
 
     public void setCallbackListener(CallbackInterfaceEdit callbackListener) {
         this.callbackEditListener = callbackListener;
+    }
+
+    @Override
+    public void onYesClick() {
+        newUser.setName(String.valueOf(nameEdit.getText()));
+        newUser.setSurname(surnameEdit.getText().toString());
+        newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
+        callbackEditListener.onSaveClick(newUser);
+    }
+
+    @Override
+    public void onNoClick() {
+        getActivity().finish();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.dakakolp.hometask9fixed.classes.User;
 import com.dakakolp.hometask9fixed.fragments.EditFragment;
 import com.dakakolp.hometask9fixed.fragments.UserListFragment;
 import com.dakakolp.hometask9fixed.interfaces.CallbackInterface;
