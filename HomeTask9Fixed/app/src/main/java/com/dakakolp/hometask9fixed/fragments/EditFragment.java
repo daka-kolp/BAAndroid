@@ -3,6 +3,7 @@ package com.dakakolp.hometask9fixed.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,28 +31,27 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
     private Button save;
 
     private User newUser;
-
     private CallbackInterfaceEdit callbackEditListener;
 
     public EditFragment() {
+
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
+        nameEdit = view.findViewById(R.id.editName);
+        surnameEdit = view.findViewById(R.id.editSurname);
+        ageEdit = view.findViewById(R.id.editAge);
+        save = view.findViewById(R.id.button_save);
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        View view = getView();
-        nameEdit = view.findViewById(R.id.editName);
-        surnameEdit = view.findViewById(R.id.editSurname);
-        ageEdit = view.findViewById(R.id.editAge);
-        save = view.findViewById(R.id.button_save);
         Intent intent = getActivity().getIntent();
         final Bundle bundle = intent.getExtras();
         if (bundle != null) {
