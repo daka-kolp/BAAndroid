@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dakakolp.hometask9fixed.database.DBOpenHelper;
 import com.dakakolp.hometask9fixed.MainActivity;
 import com.dakakolp.hometask9fixed.R;
 import com.dakakolp.hometask9fixed.classes.User;
@@ -28,7 +29,7 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
 
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
-    private List<User> userList = User.createUsers();
+    private List<User> userList;
     private CallbackInterface callbackListener;
     private int currentPosition;
     private UserAdapter.OnUserClickListener onUserClickListener = new UserAdapter.OnUserClickListener() {
@@ -45,13 +46,19 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
                             DeleteDialogFragment delete = new DeleteDialogFragment();
                             delete.setListener(UserListFragment.this);
                             delete.show(getActivity().getSupportFragmentManager(), null);
-//
+
                             return true;
                         case R.id.edit_it:
                             if (callbackListener != null) {
                                 callbackListener.onEditClick(userList.get(position));
                             }
                             return true;
+                        case R.id.openUser:
+                            if (callbackListener != null) {
+                                callbackListener.onShowUserClick(userList.get(position));
+                            }
+                            return true;
+
                     }
                     return false;
                 }
@@ -69,6 +76,15 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
+
+        DBOpenHelper db = new DBOpenHelper(getContext());
+//        db.addUser(new User("Mila", "K", 23));
+//        db.addUser(new User("Nina", "Q", 16));
+//        db.addUser(new User("Mark", "L", 32));
+//        db.addUser(new User("Valeriy", "X", 30));
+//        db.addUser(new User("Mark", "L", 32));
+//        db.addUser(new User("Nikolay", "H", 26));
+        userList = db.getUsers();
 
         Context context = view.getContext();
         recyclerView = view.findViewById(R.id.recycler_view);
@@ -88,6 +104,7 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        DBOpenHelper db = new DBOpenHelper(getContext());
         switch (requestCode) {
             case MainActivity.CODE_FOR_EDIT:
                 if (resultCode == getActivity().RESULT_OK) {
@@ -101,11 +118,25 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
                     }
                 }
                 break;
+            case MainActivity.CODE_FOR_CREATE:
+                if (resultCode == getActivity().RESULT_OK) {
+                    Bundle bundleFromEdit = data.getExtras();
+                    if (bundleFromEdit != null) {
+                        User u = (User) bundleFromEdit.getSerializable(EditFragment.NEW_USER);
+                        if (userList.contains(u)) {
+                            userList.add(u);
+                        }
+                        userAdapter.notifyDataSetChanged();
+                    }
+                }
+                break;
         }
     }
 
     @Override
     public void onYesClick() {
+        DBOpenHelper db = new DBOpenHelper(getContext());
+        db.deleteUser(userList.get(currentPosition).getIdDB());
         userList.remove(currentPosition);
         userAdapter.notifyItemRemoved(currentPosition);
     }
@@ -114,4 +145,13 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
     public void onNoClick() {
 
     }
+
+    public void deleteAllUsersFromList() {
+        DBOpenHelper db = new DBOpenHelper(getContext());
+        db.deleteAll();
+        userAdapter.setUsers(db.getUsers());
+        userAdapter.notifyDataSetChanged();
+    }
+
+
 }

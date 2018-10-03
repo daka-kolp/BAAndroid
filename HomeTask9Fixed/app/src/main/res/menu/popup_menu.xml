@@ -9,4 +9,6 @@
         android:id="@+id/edit_it"
         android:title="@string/edit" />
 
+    <item android:id="@+id/openUser"
+        android:title="@string/open"/>
 </menu>

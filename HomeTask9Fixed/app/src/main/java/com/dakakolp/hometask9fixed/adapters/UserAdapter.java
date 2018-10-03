@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dakakolp.hometask9fixed.R;
@@ -50,6 +51,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+
         User user = users.get(position);
         if(user != null) {
             holder.nameTxt.setText(user.getName());
@@ -80,7 +82,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             ageTxt = itemView.findViewById(R.id.age);
             buttonMenu = itemView.findViewById(R.id.menu_button);
 
-
             buttonMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -88,5 +89,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 }
             });
         }
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

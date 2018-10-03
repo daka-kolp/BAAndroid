@@ -4,4 +4,5 @@ import com.dakakolp.hometask9fixed.classes.User;
 
 public interface CallbackInterface {
     void onEditClick(User user);
+    void onShowUserClick(User user);
 }

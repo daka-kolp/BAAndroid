@@ -18,7 +18,7 @@ public class DeleteDialogFragment extends DialogFragment {
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Do want to delete the user?")
+        builder.setMessage("Do want to delete?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

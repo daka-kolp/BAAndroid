@@ -1,18 +1,26 @@
 package com.dakakolp.hometask9fixed.fragments;
 
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.dakakolp.hometask9fixed.R;
 import com.dakakolp.hometask9fixed.classes.User;
+import com.dakakolp.hometask9fixed.database.DBOpenHelper;
 import com.dakakolp.hometask9fixed.fragments.dialogs.SaveDialogFragment;
 import com.dakakolp.hometask9fixed.interfaces.CallbackInterfaceEdit;
 import com.dakakolp.hometask9fixed.interfaces.OnButtonDialogClickListener;
@@ -27,8 +35,9 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
     private EditText nameEdit;
     private EditText surnameEdit;
     private EditText ageEdit;
-    private EditText genderEdit;
     private Button save;
+
+    private int currentPosition;
 
     private User newUser;
     private CallbackInterfaceEdit callbackEditListener;
@@ -36,7 +45,6 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
     public EditFragment() {
 
     }
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -46,6 +54,7 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
         surnameEdit = view.findViewById(R.id.editSurname);
         ageEdit = view.findViewById(R.id.editAge);
         save = view.findViewById(R.id.button_save);
+        ;
         return view;
     }
 
@@ -59,6 +68,7 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
             nameEdit.setText(newUser.getName());
             surnameEdit.setText(newUser.getSurname());
             ageEdit.setText(String.valueOf(newUser.getAge()));
+            currentPosition = newUser.getIdDB();
         }
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +87,29 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
 
     @Override
     public void onYesClick() {
-        newUser.setName(String.valueOf(nameEdit.getText()));
-        newUser.setSurname(surnameEdit.getText().toString());
-        newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
-        callbackEditListener.onSaveClick(newUser);
+
+        if (newUser != null) {
+            DBOpenHelper db = new DBOpenHelper(getContext());
+            newUser.setName(String.valueOf(nameEdit.getText()));
+            newUser.setSurname(surnameEdit.getText().toString());
+            newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
+            db.editUser(currentPosition, newUser);
+            callbackEditListener.onSaveClick(newUser);
+        } else {
+            DBOpenHelper db = new DBOpenHelper(getContext());
+            newUser.setName(String.valueOf(nameEdit.getText()));
+            newUser.setSurname(surnameEdit.getText().toString());
+            newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
+            db.addUser(newUser);
+            callbackEditListener.onSaveClick(newUser);
+
+        }
     }
 
     @Override
     public void onNoClick() {
         getActivity().finish();
     }
+
+
 }

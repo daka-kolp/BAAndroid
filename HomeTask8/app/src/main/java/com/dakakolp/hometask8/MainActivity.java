@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_CALL);
                 intent.setData(Uri.parse(dial));
-                startActivity(intent);
+                Intent chosenInt = Intent.createChooser(intent, "Chose app...");
+                startActivity(chosenInt);
             }
         } else {
             Toast.makeText(MainActivity.this, "Enter number", Toast.LENGTH_SHORT).show();
