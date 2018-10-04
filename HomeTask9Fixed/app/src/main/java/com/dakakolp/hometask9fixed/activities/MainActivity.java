@@ -1,4 +1,4 @@
-package com.dakakolp.hometask9fixed;
+package com.dakakolp.hometask9fixed.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.dakakolp.hometask9fixed.R;
 import com.dakakolp.hometask9fixed.classes.User;
 import com.dakakolp.hometask9fixed.fragments.EditFragment;
 import com.dakakolp.hometask9fixed.fragments.UserListFragment;

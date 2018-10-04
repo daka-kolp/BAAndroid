@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dakakolp.hometask9fixed.database.DBOpenHelper;
-import com.dakakolp.hometask9fixed.MainActivity;
+import com.dakakolp.hometask9fixed.activities.MainActivity;
 import com.dakakolp.hometask9fixed.R;
 import com.dakakolp.hometask9fixed.classes.User;
 import com.dakakolp.hometask9fixed.adapters.UserAdapter;
@@ -78,12 +78,12 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         DBOpenHelper db = new DBOpenHelper(getContext());
-//        db.addUser(new User("Mila", "K", 23));
-//        db.addUser(new User("Nina", "Q", 16));
-//        db.addUser(new User("Mark", "L", 32));
-//        db.addUser(new User("Valeriy", "X", 30));
-//        db.addUser(new User("Mark", "L", 32));
-//        db.addUser(new User("Nikolay", "H", 26));
+//        db.addUser(new User("Zhenya", "K", 41));
+//        db.addUser(new User("Nina", "Q", 61));
+//        db.addUser(new User("Mark", "L", 30));
+//        db.addUser(new User("Vera", "X", 70));
+//        db.addUser(new User("Sveta", "L", 27));
+//        db.addUser(new User("Ivan", "H", 22));
         userList = db.getUsers();
 
         Context context = view.getContext();

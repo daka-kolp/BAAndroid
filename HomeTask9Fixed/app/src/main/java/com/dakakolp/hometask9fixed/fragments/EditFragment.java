@@ -1,22 +1,15 @@
 package com.dakakolp.hometask9fixed.fragments;
 
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.dakakolp.hometask9fixed.R;
 import com.dakakolp.hometask9fixed.classes.User;
@@ -54,7 +47,6 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
         surnameEdit = view.findViewById(R.id.editSurname);
         ageEdit = view.findViewById(R.id.editAge);
         save = view.findViewById(R.id.button_save);
-        ;
         return view;
     }
 
@@ -97,11 +89,12 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
             callbackEditListener.onSaveClick(newUser);
         } else {
             DBOpenHelper db = new DBOpenHelper(getContext());
-            newUser.setName(String.valueOf(nameEdit.getText()));
-            newUser.setSurname(surnameEdit.getText().toString());
-            newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
-            db.addUser(newUser);
-            callbackEditListener.onSaveClick(newUser);
+            User user = new User();
+            user.setName(String.valueOf(nameEdit.getText()));
+            user.setSurname(surnameEdit.getText().toString());
+            user.setAge(Integer.parseInt(ageEdit.getText().toString()));
+            db.addUser(user);
+            callbackEditListener.onSaveClick(user);
 
         }
     }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HomeTask9Fixed</string>
+    <string name="app_name">Users</string>
     <string name="surname">Surname:</string>
     <string name="name">Name:</string>
     <string name="no_data">no data</string>
@@ -9,8 +9,6 @@
     <string name="edit">Edit</string>
     <string name="create_new">Create new</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
     <string name="id">ID:</string>
     <string name="id_database">ID database:</string>
