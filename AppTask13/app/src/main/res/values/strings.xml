@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AppTask13</string>
+    <string name="surname">Surname:</string>
+    <string name="name">Name:</string>
+    <string name="no_data">no data</string>
+    <string name="age">Age:</string>
+    <string name="delete_all">Delete All</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="create_new">Create new</string>
+
+    <string name="open">Open</string>
+    <string name="id">ID:</string>
+    <string name="id_database">ID database:</string>
+    <string name="exit">Exit</string>
+</resources>
