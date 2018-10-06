@@ -1,51 +1,29 @@
 package com.dakakolp.hometask13.classes;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
 
-import com.dakakolp.hometask13.R;
-public class User implements Serializable {
+import io.realm.RealmObject;
+
+public class User extends RealmObject{
+
+//    @PrimaryKey
+//    @Required
+    private String idStr;
     private String name;
     private String surname;
     private int age;
-    private long id;
-    private int idDB;
 
     public User() {
-
+        this.idStr = UUID.randomUUID().toString();
     }
 
     public User(String name, String surname, int age) {
+        this.idStr = UUID.randomUUID().toString();
         this.name = name;
         this.surname = surname;
         this.age = age;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id;
-    }
-
-    @SuppressLint("NewApi")
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 
     public static List<User> createUsers() {
@@ -57,6 +35,10 @@ public class User implements Serializable {
         users.add(new User("Mark", "L", 32));
         users.add(new User("Nikolay", "H", 26));
         return users;
+    }
+
+    public String getIdStr() {
+        return idStr;
     }
 
     public String getName() {
@@ -82,13 +64,4 @@ public class User implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-
-    public int getIdDB() {
-        return idDB;
-    }
-
-    public void setIdDB(int idDB) {
-        this.idDB = idDB;
-    }
-
 }

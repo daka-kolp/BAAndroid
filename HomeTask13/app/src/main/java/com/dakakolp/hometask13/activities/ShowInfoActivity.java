@@ -8,41 +8,50 @@ import android.widget.TextView;
 
 import com.dakakolp.hometask13.R;
 import com.dakakolp.hometask13.classes.User;
-import com.dakakolp.hometask13.database.DBOpenHelper;
+import com.dakakolp.hometask13.dbrealm.UserDBRealm;
 
 public class ShowInfoActivity extends AppCompatActivity {
 
-    private TextView idDB;
-    private TextView name;
-    private TextView surname;
-    private TextView age;
+    private TextView idTV;
+    private TextView nameTV;
+    private TextView surnameTV;
+    private TextView ageTV;
 
+    private UserDBRealm userDBRealm;
     private User user;
 
-    public static final String USER_FOR_SHOW = "user for show";
+    public static final String USER_FOR_SHOW_ID = "userStringId";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_info);
 
+        userDBRealm = new UserDBRealm();
 
-        idDB = findViewById(R.id.idDB);
-        name = findViewById(R.id.infoName);
-        surname = findViewById(R.id.infoSurname);
-        age = findViewById(R.id.infoAge);
+        idTV = findViewById(R.id.idDB);
+        nameTV = findViewById(R.id.infoName);
+        surnameTV = findViewById(R.id.infoSurname);
+        ageTV = findViewById(R.id.infoAge);
 
-        DBOpenHelper db = new DBOpenHelper(this);
         Intent intentForShowInfo = getIntent();
-        int id = intentForShowInfo.getIntExtra(USER_FOR_SHOW, 0);
-        user = db.getUser(id);
-        idDB.setText(String.valueOf(user.getIdDB()));
-        name.setText(user.getName());
-        surname.setText(user.getSurname());
-        age.setText(String.valueOf(user.getAge()));
+        String idUser = intentForShowInfo.getStringExtra(USER_FOR_SHOW_ID);
+        user = userDBRealm.getUserById(idUser);
+        idTV.setText(String.valueOf(user.getIdStr()));
+        nameTV.setText(user.getName());
+        surnameTV.setText(user.getSurname());
+        ageTV.setText(String.valueOf(user.getAge()));
+
     }
 
     public void closeActivity(View view) {
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        userDBRealm.close();
     }
 }

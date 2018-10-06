@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 import com.dakakolp.hometask13.R;
 import com.dakakolp.hometask13.classes.User;
-import com.dakakolp.hometask13.database.DBOpenHelper;
+import com.dakakolp.hometask13.dbrealm.UserDBRealm;
 import com.dakakolp.hometask13.fragments.dialogs.SaveDialogFragment;
 import com.dakakolp.hometask13.interfaces.CallbackInterfaceEdit;
 import com.dakakolp.hometask13.interfaces.OnButtonDialogClickListener;
@@ -22,22 +22,23 @@ import com.dakakolp.hometask13.interfaces.OnButtonDialogClickListener;
 public class EditFragment extends Fragment implements OnButtonDialogClickListener {
 
 
-    public final static String USER = "User";
-    public final static String NEW_USER = "NewUser";
+    public final static String USER_ID = "UserId";
 
     private EditText nameEdit;
     private EditText surnameEdit;
     private EditText ageEdit;
     private Button save;
 
-    private int currentPosition;
-
+    private UserDBRealm userDBRealm;
     private User newUser;
+
     private CallbackInterfaceEdit callbackEditListener;
 
-    public EditFragment() {
-
+    public void setCallbackListener(CallbackInterfaceEdit callbackListener) {
+        this.callbackEditListener = callbackListener;
     }
+
+    public EditFragment() {}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -53,15 +54,18 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
     @Override
     public void onStart() {
         super.onStart();
+
+        userDBRealm = new UserDBRealm();
+
         Intent intent = getActivity().getIntent();
-        final Bundle bundle = intent.getExtras();
-        if (bundle != null) {
-            newUser = (User) bundle.getSerializable(USER);
+        String idUser = intent.getStringExtra(USER_ID);
+        if (idUser != null) {
+            newUser = userDBRealm.getUserById(idUser);
             nameEdit.setText(newUser.getName());
             surnameEdit.setText(newUser.getSurname());
             ageEdit.setText(String.valueOf(newUser.getAge()));
-            currentPosition = newUser.getIdDB();
         }
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,30 +76,23 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
         });
     }
 
-
-    public void setCallbackListener(CallbackInterfaceEdit callbackListener) {
-        this.callbackEditListener = callbackListener;
-    }
-
     @Override
     public void onYesClick() {
 
         if (newUser != null) {
-            DBOpenHelper db = new DBOpenHelper(getContext());
-            newUser.setName(String.valueOf(nameEdit.getText()));
-            newUser.setSurname(surnameEdit.getText().toString());
-            newUser.setAge(Integer.parseInt(ageEdit.getText().toString()));
-            db.editUser(currentPosition, newUser);
-            callbackEditListener.onSaveClick(newUser);
+            userDBRealm.updateUser(newUser,
+                    String.valueOf(nameEdit.getText()),
+                    surnameEdit.getText().toString(),
+                    Integer.parseInt(ageEdit.getText().toString()));
+            callbackEditListener.onSaveClick();
         } else {
-            DBOpenHelper db = new DBOpenHelper(getContext());
-            User user = new User();
-            user.setName(String.valueOf(nameEdit.getText()));
-            user.setSurname(surnameEdit.getText().toString());
-            user.setAge(Integer.parseInt(ageEdit.getText().toString()));
-            db.addUser(user);
-            callbackEditListener.onSaveClick(user);
-
+            User user = new User(
+                    String.valueOf(nameEdit.getText()),
+                    surnameEdit.getText().toString(),
+                    Integer.parseInt(ageEdit.getText().toString())
+            );
+            userDBRealm.insertUser(user);
+            callbackEditListener.onSaveClick();
         }
     }
 
@@ -104,5 +101,9 @@ public class EditFragment extends Fragment implements OnButtonDialogClickListene
         getActivity().finish();
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        userDBRealm.close();
+    }
 }

@@ -90,8 +90,4 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             });
         }
     }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }

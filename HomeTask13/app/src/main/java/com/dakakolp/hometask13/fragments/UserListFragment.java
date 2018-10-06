@@ -1,6 +1,5 @@
 package com.dakakolp.hometask13.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,11 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dakakolp.hometask13.database.DBOpenHelper;
-import com.dakakolp.hometask13.activities.MainActivity;
 import com.dakakolp.hometask13.R;
-import com.dakakolp.hometask13.classes.User;
+import com.dakakolp.hometask13.activities.MainActivity;
 import com.dakakolp.hometask13.adapters.UserAdapter;
+import com.dakakolp.hometask13.classes.User;
+import com.dakakolp.hometask13.dbrealm.UserDBRealm;
 import com.dakakolp.hometask13.fragments.dialogs.DeleteDialogFragment;
 import com.dakakolp.hometask13.interfaces.CallbackInterface;
 import com.dakakolp.hometask13.interfaces.OnButtonDialogClickListener;
@@ -30,8 +29,11 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<User> userList;
-    private CallbackInterface callbackListener;
     private int currentPosition;
+
+    private UserDBRealm userDBRealm;
+
+    private CallbackInterface callbackListener;
     private UserAdapter.OnUserClickListener onUserClickListener = new UserAdapter.OnUserClickListener() {
         @Override
         public void onDotsClick(View view, final int position) {
@@ -69,7 +71,6 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
 
 
     public UserListFragment() {
-
     }
 
     @Nullable
@@ -77,18 +78,14 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        DBOpenHelper db = new DBOpenHelper(getContext());
-//        db.addUser(new User("Zhenya", "K", 41));
-//        db.addUser(new User("Nina", "Q", 61));
-//        db.addUser(new User("Mark", "L", 30));
-//        db.addUser(new User("Vera", "X", 70));
-//        db.addUser(new User("Sveta", "L", 27));
-//        db.addUser(new User("Ivan", "H", 22));
-        userList = db.getUsers();
+        userDBRealm = new UserDBRealm();
+//        userDBRealm.insertUser(new User("Mila", "K", 23));
+//        userDBRealm.insertUser(new User("Dmitriy", "W", 27));
+//        userDBRealm.insertUser(new User("Nina", "Q", 16));
+        userList = userDBRealm.getUsers();
 
-        Context context = view.getContext();
         recyclerView = view.findViewById(R.id.recycler_view);
-        LinearLayoutManager llm = new LinearLayoutManager(context);
+        LinearLayoutManager llm = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(llm);
         userAdapter = new UserAdapter(userList, onUserClickListener);
         recyclerView.setAdapter(userAdapter);
@@ -104,30 +101,10 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        DBOpenHelper db = new DBOpenHelper(getContext());
         switch (requestCode) {
-            case MainActivity.CODE_FOR_EDIT:
+            case MainActivity.CODE_FOR_EDIT_OR_CREATE:
                 if (resultCode == getActivity().RESULT_OK) {
-                    Bundle bundleFromEdit = data.getExtras();
-                    if (bundleFromEdit != null) {
-                        User u = (User) bundleFromEdit.getSerializable(EditFragment.NEW_USER);
-                        if (userList.contains(u)) {
-                            userList.set(currentPosition, u);
-                        }
-                        userAdapter.notifyDataSetChanged();
-                    }
-                }
-                break;
-            case MainActivity.CODE_FOR_CREATE:
-                if (resultCode == getActivity().RESULT_OK) {
-                    Bundle bundleFromEdit = data.getExtras();
-                    if (bundleFromEdit != null) {
-                        User u = (User) bundleFromEdit.getSerializable(EditFragment.NEW_USER);
-                        if (userList.contains(u)) {
-                            userList.add(u);
-                        }
-                        userAdapter.notifyDataSetChanged();
-                    }
+                    userAdapter.notifyDataSetChanged();
                 }
                 break;
         }
@@ -135,23 +112,22 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
 
     @Override
     public void onYesClick() {
-        DBOpenHelper db = new DBOpenHelper(getContext());
-        db.deleteUser(userList.get(currentPosition).getIdDB());
-        userList.remove(currentPosition);
+        userDBRealm.deleteUserById(userList.get(currentPosition).getIdStr());
         userAdapter.notifyItemRemoved(currentPosition);
     }
 
     @Override
-    public void onNoClick() {
-
-    }
+    public void onNoClick() {}
 
     public void deleteAllUsersFromList() {
-        DBOpenHelper db = new DBOpenHelper(getContext());
-        db.deleteAll();
-        userAdapter.setUsers(db.getUsers());
+        userDBRealm.deleteAllUsers();
         userAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        userDBRealm.close();
+    }
 
 }

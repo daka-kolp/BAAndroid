@@ -29,14 +29,8 @@ public class EditActivity extends AppCompatActivity implements CallbackInterface
     }
 
     @Override
-    public void onSaveClick(User user) {
-
+    public void onSaveClick() {
         Intent intentToMainActivity = new Intent(EditActivity.this, MainActivity.class);
-        Bundle bundleToMainActivity = new Bundle();
-
-        bundleToMainActivity.putSerializable(EditFragment.NEW_USER, user);
-        intentToMainActivity.putExtras(bundleToMainActivity);
-
         setResult(RESULT_OK, intentToMainActivity);
         finish();
     }

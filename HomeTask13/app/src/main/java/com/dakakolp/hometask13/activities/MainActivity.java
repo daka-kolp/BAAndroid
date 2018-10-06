@@ -1,8 +1,8 @@
 package com.dakakolp.hometask13.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,10 +18,7 @@ import com.dakakolp.hometask13.interfaces.OnButtonDialogClickListener;
 public class MainActivity extends AppCompatActivity implements CallbackInterface, OnButtonDialogClickListener {
 
     private UserListFragment listFragment;
-
-
-    public static final int CODE_FOR_EDIT = 108;
-    public static final int CODE_FOR_CREATE = 313;
+    public static final int CODE_FOR_EDIT_OR_CREATE = 108;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,29 +32,23 @@ public class MainActivity extends AppCompatActivity implements CallbackInterface
                 .commit();
     }
 
-
     @Override
     public void onEditClick(User user) {
-
         Intent intent = new Intent(MainActivity.this, EditActivity.class);
-
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(EditFragment.USER, user);
-
-        intent.putExtras(bundle);
-        startActivityForResult(intent, CODE_FOR_EDIT);
+        intent.putExtra(EditFragment.USER_ID, user.getIdStr());
+        startActivityForResult(intent, CODE_FOR_EDIT_OR_CREATE);
     }
 
     @Override
     public void onShowUserClick(User user) {
         Intent intent = new Intent(MainActivity.this, ShowInfoActivity.class);
-        intent.putExtra(ShowInfoActivity.USER_FOR_SHOW, user.getIdDB());
+        intent.putExtra(ShowInfoActivity.USER_FOR_SHOW_ID, user.getIdStr());
         startActivity(intent);
     }
 
-    public void onCreateClick(){
+    public void onCreateClick() {
         Intent intent = new Intent(MainActivity.this, EditActivity.class);
-        startActivityForResult(intent, CODE_FOR_CREATE);
+        startActivityForResult(intent, CODE_FOR_EDIT_OR_CREATE);
     }
 
     @Override
@@ -76,11 +67,9 @@ public class MainActivity extends AppCompatActivity implements CallbackInterface
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete_all:
-
                 DeleteDialogFragment delete = new DeleteDialogFragment();
                 delete.setListener(this);
                 delete.show(this.getSupportFragmentManager(), null);
-
                 return true;
             case R.id.create:
                 onCreateClick();
