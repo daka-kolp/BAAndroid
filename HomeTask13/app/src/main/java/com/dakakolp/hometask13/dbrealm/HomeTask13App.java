@@ -16,7 +16,7 @@ public class HomeTask13App extends Application {
         Realm.init(this);
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .name(DATABASE_NAME) //имя бд
-                .schemaVersion(0) //версия бд
+                .schemaVersion(1) //версия бд
                 .migration(new MyMigration())
                 .initialData(new MyTransaction())
                 .build();

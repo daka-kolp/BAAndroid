@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = "log tag";
     private Switch isLoad;
     private Button photo;
     private Button save;
@@ -114,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadFile() {
+        if (!Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {
+            Log.d(LOG_TAG, "SD-карта не доступна: " + Environment.getExternalStorageState());
+            return;
+        }
         String root = Environment.getExternalStorageDirectory().toString();
         File file = new File(root + "/image", "test.jpg");
 
@@ -137,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveFile() {
+        if (!Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {
+            Log.d(LOG_TAG, "SD-карта не доступна: " + Environment.getExternalStorageState());
+            return;
+        }
         String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/image");
         myDir.mkdirs();
@@ -153,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }

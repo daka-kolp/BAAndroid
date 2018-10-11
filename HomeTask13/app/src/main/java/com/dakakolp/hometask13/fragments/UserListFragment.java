@@ -79,9 +79,6 @@ public class UserListFragment extends Fragment implements OnButtonDialogClickLis
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         userDBRealm = new UserDBRealm();
-//        userDBRealm.insertUser(new User("Mila", "K", 23));
-//        userDBRealm.insertUser(new User("Dmitriy", "W", 27));
-//        userDBRealm.insertUser(new User("Nina", "Q", 16));
         userList = userDBRealm.getUsers();
 
         recyclerView = view.findViewById(R.id.recycler_view);

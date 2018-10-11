@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.EditFragment">
 
+
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
@@ -80,7 +81,7 @@
         android:layout_height="80dp"
         android:layout_below="@+id/editAge"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"        />
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/button_save"
@@ -90,5 +91,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="Save?" />
+
 
 </RelativeLayout>

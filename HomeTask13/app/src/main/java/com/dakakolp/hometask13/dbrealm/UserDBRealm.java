@@ -45,6 +45,7 @@ public class UserDBRealm {
         return user;
     }
 
+
     public void updateUser(final User user, final String name, final String surname, final int age) {
         realmDb.executeTransaction(new Realm.Transaction() {
             @Override
