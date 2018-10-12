@@ -34,9 +34,15 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        Uri uri = imageList.get(position);
+    public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
+        final Uri uri = imageList.get(position);
         holder.imageView.setImageURI(uri);
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onOpenClick(position);
+            }
+        });
     }
 
     @Override
@@ -50,12 +56,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public ImageViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image_list);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onOpenClick(getAdapterPosition());
-                }
-            });
+
         }
     }
 

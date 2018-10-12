@@ -5,18 +5,20 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private MyListener listener = new MyListener() {
         @Override
 
-        public void onOpenClick(int pos) {
+        public void onOpenClick(Uri uri) {
             Intent intent = new Intent(MainActivity.this, ShowActivity.class);
 
+            intent.putExtra("str", uri.toString());
             MainActivity.this.startActivity(intent);
         }
     };
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Uri> getAllItems() {
 
-        List<Uri> uris = new ArrayList<Uri>();
+    List<Uri> uris = new ArrayList<Uri>();
 
         String[] list = {MediaStore.Images.Media._ID, MediaStore.Images.Media.DATA};
         Cursor cursor = getContentResolver().query(
@@ -81,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         cursor.close();
+
         return uris;
     }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
