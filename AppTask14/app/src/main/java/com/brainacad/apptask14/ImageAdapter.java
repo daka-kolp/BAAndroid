@@ -13,10 +13,10 @@ import java.util.List;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
 
 
-    private List<Uri> imageList;
+    private List<ItemImage> imageList;
     private MyListener listener;
 
-    public ImageAdapter(List<Uri> imageList) {
+    public ImageAdapter(List<ItemImage> imageList) {
         this.imageList = imageList;
     }
 
@@ -35,12 +35,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
-        final Uri uri = imageList.get(position);
-        holder.imageView.setImageURI(uri);
+        final ItemImage image = imageList.get(position);
+        holder.imageView.setImageURI(image.gettUri());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onOpenClick(position);
+                listener.onOpenClick(image);
             }
         });
     }
