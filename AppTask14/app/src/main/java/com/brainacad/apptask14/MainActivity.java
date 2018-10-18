@@ -96,12 +96,19 @@ public class MainActivity extends AppCompatActivity {
         List<ItemImage> uris = new ArrayList<ItemImage>();
 
         String[] list = {MediaStore.Images.Thumbnails.IMAGE_ID, MediaStore.Images.Thumbnails.DATA};
-        Cursor cursor = getContentResolver().query(
+//        Cursor cursor = getContentResolver().query(
+//                MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
+//                list,
+//                null,
+//                null,
+//                null); //Thumbnails - миниатюрные копии
+
+
+        Cursor cursor = MediaStore.Images.Thumbnails.queryMiniThumbnails(getContentResolver(),
                 MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
-                list,
-                null,
-                null,
-                MediaStore.Images.Thumbnails.IMAGE_ID); //Thumbnails - миниатюрные копии
+                MediaStore.Images.Thumbnails.MINI_KIND,
+                list);
+
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 int id = cursor.getInt(0);

@@ -11,4 +11,3 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         Toast.makeText(context, "Network config has change", Toast.LENGTH_SHORT).show();
     }
 }
-//включение/отключение экрана, логи

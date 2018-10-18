@@ -2,20 +2,12 @@ package com.brainacad.apptask15;
 
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView listView;
-    public static List<String> listLog = new ArrayList<>();
     private ScreenReceiver screenReceiver;
 
     @Override
@@ -23,23 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.list_view);
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listLog);
-        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        listView.setAdapter(listAdapter);
-
     }
-    private NetworkChangeReceiver receiver;
 
     @Override
     protected void onPause() {
         unregisterReceiver(screenReceiver);
         super.onPause();
     }
-
-    //внутренние поля класса - начинаются с m
-    //статические - с s
-
 
     @Override
     protected void onResume() {
@@ -50,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         registerReceiver(this.screenReceiver, filter);
 
+        Log.d("tag", "onResume: " + filter.getAction(0) + " " + filter.getAction(1));
+
         super.onResume();
     }
+
 }
