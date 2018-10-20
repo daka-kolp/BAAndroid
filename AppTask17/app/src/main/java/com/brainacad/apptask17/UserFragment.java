@@ -25,6 +25,7 @@ public class UserFragment extends Fragment {
     private TextView email;
     private TextView addressStreet;
     private TextView addressSuite;
+    private TextView addressCity;
     private TextView addressZipcode;
     private TextView geoLat;
     private TextView geoLng;
@@ -35,9 +36,6 @@ public class UserFragment extends Fragment {
     private TextView companyBs;
 
 
-    public void setListener(OnFragmentInteractionListener mListener) {
-        this.mListener = mListener;
-    }
 
     private User user;
     private OnFragmentInteractionListener mListener;
@@ -72,6 +70,7 @@ public class UserFragment extends Fragment {
         username = view.findViewById(R.id.username);
         email = view.findViewById(R.id.email);
         addressStreet = view.findViewById(R.id.street);
+        addressCity = view.findViewById(R.id.city);
         addressSuite = view.findViewById(R.id.suite);
         addressZipcode = view.findViewById(R.id.zipcode);
         geoLat = view.findViewById(R.id.lat);
@@ -82,6 +81,26 @@ public class UserFragment extends Fragment {
         companyCatchPhrase = view.findViewById(R.id.catchPhrase);
         companyBs = view.findViewById(R.id.bs);
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        id.setText(String.valueOf(user.getIdStr()));
+        name.setText(user.getNameStr());
+        username.setText(user.getUsernameStr());
+        email.setText(user.getEmailStr());
+        addressStreet.setText(user.getAddress().getAddressStreetStr());
+        addressSuite.setText(user.getAddress().getAddressSuiteStr());
+        addressZipcode.setText(user.getAddress().getAddressZipcodeStr());
+        addressCity.setText(user.getAddress().getAddressCityStr());
+        geoLat.setText(user.getAddress().getGeo().getGeoLatStr());
+        geoLng.setText(user.getAddress().getGeo().getGeoLngStr());
+        phone.setText(user.getPhoneStr());
+        website.setText(user.getWebsiteStr());
+        companyName.setText(user.getCompany().getCompanyNameStr());
+        companyCatchPhrase.setText(user.getCompany().getCompanyCatchPhraseStr());
+        companyBs.setText(user.getCompany().getCompanyBsStr());
     }
 
     public void onButtonPressed(Uri uri) {

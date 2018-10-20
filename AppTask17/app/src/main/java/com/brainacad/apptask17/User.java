@@ -3,19 +3,23 @@ package com.brainacad.apptask17;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private int idStr;
+
+    private int id;
     private String nameStr;
     private String usernameStr;
+    private Address address;
     private String emailStr;
     private String phoneStr;
     private String websiteStr;
+    private Company company;
+
 
     public int getIdStr() {
-        return idStr;
+        return id;
     }
 
     public void setIdStr(int idStr) {
-        this.idStr = idStr;
+        this.id = idStr;
     }
 
     public String getNameStr() {
@@ -58,10 +62,28 @@ public class User implements Serializable {
         this.websiteStr = websiteStr;
     }
 
-    public class Address {
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public class Address implements Serializable{
         private String addressStreetStr;
         private String addressSuiteStr;
+        private String addressCityStr;
         private String addressZipcodeStr;
+        private Geo geo;
 
         public String getAddressStreetStr() {
             return addressStreetStr;
@@ -87,7 +109,23 @@ public class User implements Serializable {
             this.addressZipcodeStr = addressZipcodeStr;
         }
 
-        public class Geo {
+        public String getAddressCityStr() {
+            return addressCityStr;
+        }
+
+        public void setAddressCityStr(String addressCityStr) {
+            this.addressCityStr = addressCityStr;
+        }
+
+        public Geo getGeo() {
+            return geo;
+        }
+
+        public void setGeo(Geo geo) {
+            this.geo = geo;
+        }
+
+        public class Geo implements Serializable{
             private String geoLatStr;
             private String geoLngStr;
 
@@ -109,7 +147,7 @@ public class User implements Serializable {
         }
     }
 
-    public class Company {
+    public class Company implements Serializable{
         private String companyNameStr;
         private String companyCatchPhraseStr;
         private String companyBsStr;
