@@ -1,16 +1,18 @@
 package com.brainacad.apptask17;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
 
     private int id;
-    private String nameStr;
-    private String usernameStr;
+    private String name;
+    private String username;
     private Address address;
-    private String emailStr;
-    private String phoneStr;
-    private String websiteStr;
+    private String email;
+    private String phone;
+    private String website;
     private Company company;
 
 
@@ -22,44 +24,44 @@ public class User implements Serializable {
         this.id = idStr;
     }
 
-    public String getNameStr() {
-        return nameStr;
+    public String getName() {
+        return name;
     }
 
-    public void setNameStr(String nameStr) {
-        this.nameStr = nameStr;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUsernameStr() {
-        return usernameStr;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsernameStr(String usernameStr) {
-        this.usernameStr = usernameStr;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getEmailStr() {
-        return emailStr;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailStr(String emailStr) {
-        this.emailStr = emailStr;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPhoneStr() {
-        return phoneStr;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneStr(String phoneStr) {
-        this.phoneStr = phoneStr;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getWebsiteStr() {
-        return websiteStr;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setWebsiteStr(String websiteStr) {
-        this.websiteStr = websiteStr;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public Address getAddress() {
@@ -78,43 +80,43 @@ public class User implements Serializable {
         this.company = company;
     }
 
-    public class Address implements Serializable{
-        private String addressStreetStr;
-        private String addressSuiteStr;
-        private String addressCityStr;
-        private String addressZipcodeStr;
+    public class Address {
+        private String street;
+        private String suite;
+        private String city;
+        private String zipcode;
         private Geo geo;
 
-        public String getAddressStreetStr() {
-            return addressStreetStr;
+        public String getStreet() {
+            return street;
         }
 
-        public void setAddressStreetStr(String addressStreetStr) {
-            this.addressStreetStr = addressStreetStr;
+        public void setStreet(String street) {
+            this.street = street;
         }
 
-        public String getAddressSuiteStr() {
-            return addressSuiteStr;
+        public String getSuite() {
+            return suite;
         }
 
-        public void setAddressSuiteStr(String addressSuiteStr) {
-            this.addressSuiteStr = addressSuiteStr;
+        public void setSuite(String suite) {
+            this.suite = suite;
         }
 
-        public String getAddressZipcodeStr() {
-            return addressZipcodeStr;
+        public String getZipcode() {
+            return zipcode;
         }
 
-        public void setAddressZipcodeStr(String addressZipcodeStr) {
-            this.addressZipcodeStr = addressZipcodeStr;
+        public void setZipcode(String zipcode) {
+            this.zipcode = zipcode;
         }
 
-        public String getAddressCityStr() {
-            return addressCityStr;
+        public String getCity() {
+            return city;
         }
 
-        public void setAddressCityStr(String addressCityStr) {
-            this.addressCityStr = addressCityStr;
+        public void setCity(String city) {
+            this.city = city;
         }
 
         public Geo getGeo() {
@@ -125,55 +127,56 @@ public class User implements Serializable {
             this.geo = geo;
         }
 
-        public class Geo implements Serializable{
-            private String geoLatStr;
-            private String geoLngStr;
+        public class Geo {
+            private String lat;
+            private String lng;
 
-            public String getGeoLatStr() {
-                return geoLatStr;
+            public String getLat() {
+                return lat;
             }
 
-            public void setGeoLatStr(String geoLatStr) {
-                this.geoLatStr = geoLatStr;
+            public void setLat(String lat) {
+                this.lat = lat;
             }
 
-            public String getGeoLngStr() {
-                return geoLngStr;
+            public String getLng() {
+                return lng;
             }
 
-            public void setGeoLngStr(String geoLngStr) {
-                this.geoLngStr = geoLngStr;
+            public void setLng(String lng) {
+                this.lng = lng;
             }
         }
     }
 
-    public class Company implements Serializable{
-        private String companyNameStr;
-        private String companyCatchPhraseStr;
-        private String companyBsStr;
+    public class Company{
+        @SerializedName("name")
+        private String companyName;
+        private String catchPhrase;
+        private String bs;
 
-        public String getCompanyNameStr() {
-            return companyNameStr;
+        public String getCompanyName() {
+            return companyName;
         }
 
-        public void setCompanyNameStr(String companyNameStr) {
-            this.companyNameStr = companyNameStr;
+        public void setCompanyName(String companyName) {
+            this.companyName = companyName;
         }
 
-        public String getCompanyCatchPhraseStr() {
-            return companyCatchPhraseStr;
+        public String getCatchPhrase() {
+            return catchPhrase;
         }
 
-        public void setCompanyCatchPhraseStr(String companyCatchPhraseStr) {
-            this.companyCatchPhraseStr = companyCatchPhraseStr;
+        public void setCatchPhrase(String catchPhrase) {
+            this.catchPhrase = catchPhrase;
         }
 
-        public String getCompanyBsStr() {
-            return companyBsStr;
+        public String getBs() {
+            return bs;
         }
 
-        public void setCompanyBsStr(String companyBsStr) {
-            this.companyBsStr = companyBsStr;
+        public void setBs(String bs) {
+            this.bs = bs;
         }
     }
 }

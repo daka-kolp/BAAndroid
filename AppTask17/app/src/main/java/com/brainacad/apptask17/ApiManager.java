@@ -22,13 +22,16 @@ public class ApiManager {
 
     public void getUser(int userId, final OnServerResponse onServerResponse) {
 
-        Call<ResponseBody> call = AppTask16App.getAppInstance().getApiService().getUser(userId);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<User> call = AppTask16App.getAppInstance().getApiService().getUser(userId);
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                JSONObject object = null;
-                ///вытащить и положить в юзера
-                try {
+            public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
+                User object = null;
+                //вытащить и положить в юзера
+//                try {
+                    object = response.body();
+
+                    /*
                     String strResponse = response.body().string();
                     object = new JSONObject(strResponse);
 
@@ -62,41 +65,41 @@ public class ApiManager {
 
 
                     user.setIdStr(id);
-                    user.setNameStr(name);
-                    user.setUsernameStr(username);
-                    user.setEmailStr(email);
+                    user.setName(name);
+                    user.setUsername(username);
+                    user.setEmail(email);
 
-                    geo.setGeoLatStr(lat);
-                    geo.setGeoLngStr(lng);
+                    geo.setLat(lat);
+                    geo.setLng(lng);
 
-                    address.setAddressStreetStr(street);
-                    address.setAddressSuiteStr(suite);
-                    address.setAddressCityStr(city);
-                    address.setAddressZipcodeStr(zipcode);
+                    address.setStreet(street);
+                    address.setSuite(suite);
+                    address.setCity(city);
+                    address.setZipcode(zipcode);
                     address.setGeo(geo);
                     user.setAddress(address);
 
-                    user.setPhoneStr(phone);
-                    user.setWebsiteStr(website);
+                    user.setPhone(phone);
+                    user.setWebsite(website);
 
-                    company.setCompanyNameStr(nameComp);
-                    company.setCompanyCatchPhraseStr(catchPhrase);
-                    company.setCompanyBsStr(bs);
+                    company.setCompanyName(nameComp);
+                    company.setCatchPhrase(catchPhrase);
+                    company.setBs(bs);
                     user.setCompany(company);
+*/
+                    onServerResponse.onServerUserResponse(object);
 
-                    onServerResponse.onServerUserResponse(user);
 
-
-                } catch (IOException e) {
+/*                } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
+                }*/
                 Log.i("tag", "onResponse: " + object);
             }
 
             @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
 
             }
         });

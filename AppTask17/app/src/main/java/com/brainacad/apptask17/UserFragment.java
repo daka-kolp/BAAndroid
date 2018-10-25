@@ -87,20 +87,20 @@ public class UserFragment extends Fragment {
     public void onStart() {
         super.onStart();
         id.setText(String.valueOf(user.getIdStr()));
-        name.setText(user.getNameStr());
-        username.setText(user.getUsernameStr());
-        email.setText(user.getEmailStr());
-        addressStreet.setText(user.getAddress().getAddressStreetStr());
-        addressSuite.setText(user.getAddress().getAddressSuiteStr());
-        addressZipcode.setText(user.getAddress().getAddressZipcodeStr());
-        addressCity.setText(user.getAddress().getAddressCityStr());
-        geoLat.setText(user.getAddress().getGeo().getGeoLatStr());
-        geoLng.setText(user.getAddress().getGeo().getGeoLngStr());
-        phone.setText(user.getPhoneStr());
-        website.setText(user.getWebsiteStr());
-        companyName.setText(user.getCompany().getCompanyNameStr());
-        companyCatchPhrase.setText(user.getCompany().getCompanyCatchPhraseStr());
-        companyBs.setText(user.getCompany().getCompanyBsStr());
+        name.setText(user.getName());
+        username.setText(user.getUsername());
+        email.setText(user.getEmail());
+        addressStreet.setText(user.getAddress().getStreet());
+        addressSuite.setText(user.getAddress().getSuite());
+        addressZipcode.setText(user.getAddress().getZipcode());
+        addressCity.setText(user.getAddress().getCity());
+        geoLat.setText(user.getAddress().getGeo().getLat());
+        geoLng.setText(user.getAddress().getGeo().getLng());
+        phone.setText(user.getPhone());
+        website.setText(user.getWebsite());
+        companyName.setText(user.getCompany().getCompanyName());
+        companyCatchPhrase.setText(user.getCompany().getCatchPhrase());
+        companyBs.setText(user.getCompany().getBs());
     }
 
     public void onButtonPressed(Uri uri) {

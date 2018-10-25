@@ -1,31 +1,33 @@
-package com.brainacad.apptask17;
+package com.brainacad.hometask17;
 
 import android.app.Application;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AppTask16App extends Application {
-    private static AppTask16App appInstance;
-    private ApiServiceInterface apiService;
+public class HomeTask17App extends Application {
+
+    private static HomeTask17App appInstance;
+    private ApiService service;
     private Retrofit retrofit;
 
     @Override
     public void onCreate() {
+        super.onCreate();
         appInstance = this;
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        apiService = retrofit.create(ApiServiceInterface.class);
-        super.onCreate();
+        service = retrofit.create(ApiService.class);
     }
 
-    public static AppTask16App getAppInstance() {
+
+    public static HomeTask17App getAppInstance() {
         return appInstance;
     }
 
-    public ApiServiceInterface getApiService() {
-        return apiService;
+    public ApiService getService() {
+        return service;
     }
 }
