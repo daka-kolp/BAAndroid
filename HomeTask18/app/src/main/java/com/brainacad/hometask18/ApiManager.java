@@ -9,10 +9,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public class ApiManager {
     public interface OnServerResponse{
@@ -26,6 +22,7 @@ public class ApiManager {
             public void onResponse(Call<User> call, Response<User> response) {
                 User u = response.body();
 
+
             }
 
             @Override
@@ -38,24 +35,69 @@ public class ApiManager {
 
 
     public void getTokenForLogin(User user){
-        Call<>
+        Call<User> getToken = HomeTask18App.getAppInstance().getService().getTokenForLogin(user);
+        getToken.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 
 
-    public List<Product> getProductList(){
+    public void getProductList(){
 
-        return null;
+        Call<List<Product>> callListProduct = HomeTask18App.getAppInstance().getService().getProductList();
+        callListProduct.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+
+            }
+        });
     }
 
 
     public void postCommentAboutProduct(int product_id){
 
+        Call<Product> postComment = HomeTask18App.getAppInstance().getService().postCommentAboutProduct(product_id);
+        postComment.enqueue(new Callback<Product>() {
+            @Override
+            public void onResponse(Call<Product> call, Response<Product> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Product> call, Throwable t) {
+
+            }
+        });
     }
 
 
-    public Comment getCommetsAboutProduct(int product_id){
+    public void getCommentsAboutProduct(int product_id){
 
+        Call<List<Comment>> callListComment = HomeTask18App.getAppInstance().getService().getCommentsAboutProduct(product_id);
+        callListComment.enqueue(new Callback<List<Comment>>() {
+            @Override
+            public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
 
-        return null;
+            }
+
+            @Override
+            public void onFailure(Call<List<Comment>> call, Throwable t) {
+
+            }
+        });
+
     }
 }

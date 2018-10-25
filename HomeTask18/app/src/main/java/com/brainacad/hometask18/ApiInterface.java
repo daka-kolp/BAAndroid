@@ -26,7 +26,7 @@ public interface ApiInterface {
     Call<Product> postCommentAboutProduct(@Path("product_id") int product_id);
 
     @GET("api/reviews/{product_id}")
-    Call<List<Comment>> getCommetsAboutProduct(@Path("product_id") int product_id);
+    Call<List<Comment>> getCommentsAboutProduct(@Path("product_id") int product_id);
 
 }
 
